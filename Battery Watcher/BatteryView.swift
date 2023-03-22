@@ -13,15 +13,21 @@ import UserNotifications
 struct BatteryView: View {
     @State var batteryPercentage: Int = 50
     @State private var showAlert = false
+    @State private var allowAlert = true;
     
     var body: some View {
         Text("Battery Percentage \(batteryPercentage)")
             .onReceive(timer) {
                 firedDate in
                 batteryPercentage = pollBatteryPercent()
-                if (batteryPercentage <= 20 || batteryPercentage >= 80){
+                if (allowAlert && (batteryPercentage <= 20 || batteryPercentage >= 80)){
                     showAlert = true
+                    allowAlert = false
                 }
+            }
+            .onReceive(otherTimer){
+                _ in
+                allowAlert=true;
             }
             .alert(isPresented: $showAlert) {
                     Alert(
@@ -29,9 +35,12 @@ struct BatteryView: View {
                         message: Text("Stop/Start charging!")
                     )
                 }
+        
     }
     
-    let timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
+    let timer = Timer.publish(every: 5, on: .main, in: .common).autoconnect()
+    
+    let otherTimer = Timer.publish(every: 20, on: .main, in: .common).autoconnect()
     /*
     func checkBattery(per: Int)-> Bool{
         let currentPercent = pollBatteryPercent()
