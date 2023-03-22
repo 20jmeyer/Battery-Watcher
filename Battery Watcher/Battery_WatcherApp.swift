@@ -12,6 +12,7 @@ struct Battery_WatcherApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+            BatteryView()
         }
     }
 }
