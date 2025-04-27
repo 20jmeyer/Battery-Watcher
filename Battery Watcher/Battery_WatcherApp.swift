@@ -9,10 +9,11 @@ import SwiftUI
 
 @main
 struct Battery_WatcherApp: App {
+    @StateObject private var batteryManager = BatteryManager()
     var body: some Scene {
         WindowGroup {
-            ContentView()
-            BatteryView()
+            SettingsView()
+            //BatteryView()
         }
     }
 }

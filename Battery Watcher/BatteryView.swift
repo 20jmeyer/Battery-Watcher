@@ -61,42 +61,27 @@ struct BatteryView: View {
         // For each power source...
         for ps in sources {
             // Fetch the information for a given power source out of our snapshot
-            let info = IOPSGetPowerSourceDescription(snapshot, ps).takeUnretainedValue() as! [String: AnyObject]
+            let info = IOPSGetPowerSourceDescription(snapshot, ps).takeUnretainedValue() as? [String: Any]
 
             // Pull out the name and capacity
-            if let name = info[kIOPSNameKey] as? String,
-                let capacity = info[kIOPSCurrentCapacityKey] as? Int,
-                let max = info[kIOPSMaxCapacityKey] as? Int {
-                print("\(name): \(capacity) of \(max)")
-                return capacity
+            if let capacity = info?[kIOPSCurrentCapacityKey as String] as? Int,
+               let max = info?[kIOPSMaxCapacityKey] as? Int {
+                return (capacity * 100)
             }
         }
         return -1
     }
     
-    func pushNotification(_percent: Int) {
+    func pushNotification(title: String, body: String) {
+        let center = UNUserNotificationCenter.current()
         let content = UNMutableNotificationContent()
-        content.title="Battery Watcher Update"
-        if (_percent != -1 && _percent <= 20){
-            content.body="Charge your computer!"
-        }
-        else if (_percent != -1 && _percent >= 80){
-            content.body="Stop charging your computer!"
-        }
+        content.title = title
+        content.body = body
         
        // let uuidString = UUID().uuidString
-        let request = UNNotificationRequest(identifier: "timerDone", content: content, trigger: nil)
-
-        // Schedule the request with the system.
-        let notificationCenter = UNUserNotificationCenter.current()
-      
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: nil)
        
-        notificationCenter.add(request) { (error) in
-           if error != nil {
-               print("error")
-           }
-        }
-        print("hello???")
+        center.add(request)
     }
     
 }

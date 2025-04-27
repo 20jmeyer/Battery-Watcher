@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		239DC7232DBD6EDD00C3101F /* BatteryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239DC7222DBD6ED600C3101F /* BatteryManager.swift */; };
+		239DC7252DBD74BF00C3101F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239DC7242DBD74BF00C3101F /* SettingsView.swift */; };
 		23C2EC9F29CA27510079A207 /* Battery_WatcherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C2EC9E29CA27510079A207 /* Battery_WatcherApp.swift */; };
 		23C2ECA129CA27510079A207 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C2ECA029CA27510079A207 /* ContentView.swift */; };
 		23C2ECA329CA27510079A207 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23C2ECA229CA27510079A207 /* Assets.xcassets */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		239DC7222DBD6ED600C3101F /* BatteryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryManager.swift; sourceTree = "<group>"; };
+		239DC7242DBD74BF00C3101F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		23C2EC9B29CA27510079A207 /* Battery Watcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Battery Watcher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23C2EC9E29CA27510079A207 /* Battery_WatcherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Battery_WatcherApp.swift; sourceTree = "<group>"; };
 		23C2ECA029CA27510079A207 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -97,12 +101,14 @@
 		23C2EC9D29CA27510079A207 /* Battery Watcher */ = {
 			isa = PBXGroup;
 			children = (
+				239DC7222DBD6ED600C3101F /* BatteryManager.swift */,
 				23C2EC9E29CA27510079A207 /* Battery_WatcherApp.swift */,
 				23C2ECA029CA27510079A207 /* ContentView.swift */,
 				23C2ECA229CA27510079A207 /* Assets.xcassets */,
 				23C2ECA729CA27510079A207 /* Battery_Watcher.entitlements */,
 				23C2ECA429CA27510079A207 /* Preview Content */,
 				23C2ECC929CA32BB0079A207 /* BatteryView.swift */,
+				239DC7242DBD74BF00C3101F /* SettingsView.swift */,
 			);
 			path = "Battery Watcher";
 			sourceTree = "<group>";
@@ -262,7 +268,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				239DC7252DBD74BF00C3101F /* SettingsView.swift in Sources */,
 				23C2ECCA29CA32BB0079A207 /* BatteryView.swift in Sources */,
+				239DC7232DBD6EDD00C3101F /* BatteryManager.swift in Sources */,
 				23C2ECA129CA27510079A207 /* ContentView.swift in Sources */,
 				23C2EC9F29CA27510079A207 /* Battery_WatcherApp.swift in Sources */,
 			);
